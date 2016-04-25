@@ -110,22 +110,22 @@ public class GameWindow extends Frame implements Runnable {
     public void run() {
         while(true){
             try {
-                Point mousePoint = MouseInfo.getPointerInfo().getLocation();
 
+                Point mousePoint = MouseInfo.getPointerInfo().getLocation();
                 mousePoint.x -= getLocationOnScreen().x;
                 mousePoint.y -= getLocationOnScreen().y;
 
-                if(mousePoint.x - 5 > plane2.x) {
+                if(mousePoint.x - 40 > plane2.x) {
                     plane2.dx = 5;
-                } else if(mousePoint.x + 5 < plane2.x) {
+                } else if(mousePoint.x -30 < plane2.x) {
                     plane2.dx = -5;
                 } else {
                     plane2.dx = 0;
                 }
 
-                if(mousePoint.y - 5 > plane2.y) {
+                if(mousePoint.y - 35 > plane2.y) {
                     plane2.dy = 5;
-                } else if(mousePoint.y + 5 < plane2.y) {
+                } else if(mousePoint.y - 25 < plane2.y) {
                     plane2.dy = -5;
                 } else {
                     plane2.dy = 0;
