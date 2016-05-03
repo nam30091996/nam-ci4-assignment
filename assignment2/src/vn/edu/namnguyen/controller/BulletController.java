@@ -15,4 +15,9 @@ public class BulletController extends SingleController {
         super(bullet, gameDrawer);
         gameVector.dy = -SPEED;
     }
+
+    public boolean checkEnemy(EnemyController enemyController){
+        if (this.gameObject.getX() > enemyController.gameObject.getX() && this.gameObject.getX() - enemyController.gameObject.getX() < enemyController.gameObject.getWidth() && this.gameObject.getY() > enemyController.gameObject.getY() && this.gameObject.getY() - enemyController.gameObject.getY() < enemyController.gameObject.getHeight()) return true;
+        return false;
+    }
 }

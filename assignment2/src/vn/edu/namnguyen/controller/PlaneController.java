@@ -105,7 +105,7 @@ public class PlaneController extends SingleController {
                 if(bulletControllerVector.get(i).gameObject.getY() < 0) bulletControllerVector.remove(i);
                 else {
                     for (int j = 0; j < enemyController.size(); j++) {
-                        if (bulletControllerVector.get(i).gameObject.getX() > enemyController.get(j).gameObject.getX() && bulletControllerVector.get(i).gameObject.getX() - enemyController.get(j).gameObject.getX() < enemyController.get(j).gameObject.getWidth() && bulletControllerVector.get(i).gameObject.getY() > enemyController.get(j).gameObject.getY() && bulletControllerVector.get(i).gameObject.getY() - enemyController.get(j).gameObject.getY() < enemyController.get(j).gameObject.getHeight()) {
+                        if (bulletControllerVector.get(i).checkEnemy(enemyController.get(j))) {
                             bulletControllerVector.remove(i);
                             enemyController.remove(j);
                         }
