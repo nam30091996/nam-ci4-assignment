@@ -13,9 +13,7 @@ import vn.edu.techkids.views.ImageDrawer;
 public class BulletController extends SingleController implements Colliable {
 
     public static final int SPEED = 15;
-    public static final int DAMAGE_DEFAULT = 1;
     private static int speed = SPEED;
-    private static int damage = DAMAGE_DEFAULT;
 
     public BulletController(Bullet gameObject, ImageDrawer gameDrawer) {
         super(gameObject, gameDrawer);
@@ -25,15 +23,7 @@ public class BulletController extends SingleController implements Colliable {
 
     public static void increase(int x) {
         speed *= x;
-        damage *= x;
-    }
-
-    public static int getDamage() {
-        return damage;
-    }
-
-    public static void setDamage(int damage) {
-        BulletController.damage = damage;
+        Bullet.increaseDamage(x);
     }
 
     public BulletController(Bullet gameObject, ImageDrawer gameDrawer, GameVector gameVector) {
@@ -54,7 +44,8 @@ public class BulletController extends SingleController implements Colliable {
     public void onCollide(Colliable c) {
         if (c instanceof EnemyPlaneController) {
             EnemyPlane enemyPlane = (EnemyPlane) c.getGameObject();
-            enemyPlane.decreaseHP(damage);
+            Bullet bullet = (Bullet) gameObject;
+            enemyPlane.decreaseHP(bullet.getDamage());
             if (enemyPlane.getHp() <= 0) {
                 enemyPlane.setAlive(false);
             }
