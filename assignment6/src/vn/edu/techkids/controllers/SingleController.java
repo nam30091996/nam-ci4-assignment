@@ -13,6 +13,7 @@ public class SingleController implements Controller {
 
     protected GameObject gameObject;
     protected GameDrawer gameDrawer;
+
     protected GameVector gameVector;
 
     public SingleController(GameObject gameObject, GameDrawer gameDrawer) {
@@ -40,4 +41,5 @@ public class SingleController implements Controller {
     public void paint(Graphics g) {
         gameDrawer.paint(this.gameObject, g);
     }
+
 }
